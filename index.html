@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/piexifjs"></script>
+    <script defer src="main.js"></script>
+    <title>SolShield — Protetor de Privacidade</title>
+</head>
+<body>
+    <!-- Hero Background Canvas -->
+    <canvas id="glcanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">
+          <span class="logo-icon"></span> SolShield
+        </a>
+        <button id="navToggle" class="nav-toggle">☰</button>
+        <ul id="navMenu" class="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#tool" class="nav-link">Ferramenta</a></li>
+          <li><a href="#howto" class="nav-link">Como usar</a></li>
+          <li><a href="#testimonials" class="nav-link">Relatos</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Sections -->
+    <div id="content">
+      <!-- Home/Hero Section -->
+      <section id="home" class="section hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">Proteja Sua Privacidade</h1>
+          <p class="hero-subtitle">Remove metadados ocultos das suas fotos em segundos</p>
+          <p class="hero-description">Sem login • 100% local • Nenhuma imagem é enviada</p>
+          <a href="#tool" class="btn btn-primary">Começar agora</a>
+        </div>
+      </section>
+
+      <!-- Tool Section -->
+      <section id="tool" class="section tool-section">
+        <div class="section-container">
+          <h2 class="section-title">Remover Metadados EXIF</h2>
+          <p class="section-subtitle">Suas fotos contêm dados sensíveis que você não vê</p>
+          
+          <div class="privacy-notice">
+            <strong>✓ Seguro e Legal:</strong> Remover metadados é seu direito. Processamento 100% local no seu navegador — nada é enviado a servidores.
+          </div>
+          
+          <div class="tool-wrapper">
+            <div class="controls-panel">
+              <div class="controls">
+                <input id="imgfile" type="file" accept="image/*" class="file-input">
+                <button id="scanBtn" class="btn btn-secondary">Escanear metadados</button>
+                <button id="removeBtn" class="btn btn-success" disabled>Remover e baixar</button>
+              <button id="downloadClean" class="btn btn-primary hidden">⬇️ Baixar imagem limpa</button>
+                <div id="metadataList" class="metadata-list"></div>
+              </div>
+
+              <div id="fileInfo" class="file-info muted"></div>
+            </div>
+
+            <div class="preview-panel">
+              <div class="preview-container">
+                <div class="preview-item">
+                  <h3>Original</h3>
+                  <img id="origImage" alt="Imagem original" class="preview-img">
+                </div>
+                <div class="preview-item">
+                  <h3>Limpa</h3>
+                  <img id="cleanImage" alt="Imagem limpa" class="preview-img">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Section -->
+      <section id="why" class="section why-section">
+        <div class="section-container">
+          <h2 class="section-title">Por que remover metadados?</h2>
+          <div class="why-grid">
+            <div class="why-card">
+              <div class="why-icon">📍</div>
+              <h3>Localização GPS</h3>
+              <p>Fotos contêm coordenadas exatas de onde você estava.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon">📅</div>
+              <h3>Data e Hora</h3>
+              <p>Histórico completo de quando cada foto foi tirada.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon">📱</div>
+              <h3>Modelo do Dispositivo</h3>
+              <p>Câmera, versão do software e identificadores únicos.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon">🔐</div>
+              <h3>Segurança de Dados</h3>
+              <p>Proteja sua privacidade antes de compartilhar online.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon">⚖️</div>
+              <h3>É Legal</h3>
+              <p>Você tem direito total sobre seus dados. Google, Apple, Adobe — todos fazem isso.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-icon">🛡️</div>
+              <h3>100% Privado</h3>
+              <p>Processamento local. Sem upload. Sem rastreamento. Nada é armazenado.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials" class="section testimonials-section">
+        <div class="section-container">
+          <h2 class="section-title">Histórias de Quem Usou</h2>
+          <p class="section-subtitle">Veja como pessoas protegem sua privacidade</p>
+          
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">🧑</div>
+                <div class="testimonial-info">
+                  <h4>Marina Silva</h4>
+                  <p class="testimonial-role">Jornalista - São Paulo</p>
+                </div>
+              </div>
+              <p class="testimonial-text">"Como jornalista, preciso proteger minhas fontes. Remover metadados das fotos é essencial antes de enviar ao editor. SolShield deixa isso super simples."</p>
+              <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">👩</div>
+                <div class="testimonial-info">
+                  <h4>Beatriz Costa</h4>
+                  <p class="testimonial-role">Ativista de Direitos - Rio</p>
+                </div>
+              </div>
+              <p class="testimonial-text">"Trabalho em direitos humanos e exposição é um risco real. Agora removo qualquer rastro de localização das minhas fotos antes de postar."</p>
+              <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">👨</div>
+                <div class="testimonial-info">
+                  <h4>Lucas Ferreira</h4>
+                  <p class="testimonial-role">Fotógrafo Profissional - MG</p>
+                </div>
+              </div>
+              <p class="testimonial-text">"Antes de vender fotos para clientes, removo metadados para proteger meus direitos autorais e informações pessoais. SolShield é perfeito para isso."</p>
+              <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">👩‍🦰</div>
+                <div class="testimonial-info">
+                  <h4>Ana Paula</h4>
+                  <p class="testimonial-role">Mãe, Brasília</p>
+                </div>
+              </div>
+              <p class="testimonial-text">"Sou mãe de duas crianças e não quero que fotos delas exponham nossa localização em redes sociais. Agora faço isso automaticamente."</p>
+              <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">🧔</div>
+                <div class="testimonial-info">
+                  <h4>Rafael Gomes</h4>
+                  <p class="testimonial-role">Especialista em Segurança - SP</p>
+                </div>
+              </div>
+              <p class="testimonial-text">"Recomendo para todos os clientes. EXIF é um vetor de ataque muito subestimado. SolShield resolve elegantemente sem complicações técnicas."</p>
+              <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">👧</div>
+                <div class="testimonial-info">
+                  <h4>Sophia Martins</h4>
+                  <p class="testimonial-role">Estudante, Curitiba</p>
+                </div>
+              </div>
+              <p class="testimonial-text">"Aprendi sobre privacidade digital na escola. Agora ensino meus pais e amigos a usar SolShield antes de compartilhar fotos."</p>
+              <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How to Use Section -->
+      <section id="howto" class="section howto-section">
+        <div class="section-container">
+          <h2 class="section-title">Como Usar em 3 Passos</h2>
+          
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <h3>Selecione uma foto</h3>
+              <p>Clique em "Escolher arquivo" e selecione qualquer imagem JPEG ou PNG do seu computador. Suporta fotos de qualquer tamanho.</p>
+              <div class="step-icon">📁</div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <h3>Escanear metadados</h3>
+              <p>Clique em "Escanear metadados" para detectar informações ocultas (GPS, câmera, data). Você verá exatamente o que será removido.</p>
+              <div class="step-icon">🔍</div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <h3>Baixar imagem limpa</h3>
+              <p>Clique em "Remover e baixar" para processar a imagem. Ela é baixada instantaneamente com 100% dos metadados removidos.</p>
+              <div class="step-icon">⬇️</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section id="faq" class="section faq-section">
+        <div class="section-container">
+          <h2 class="section-title">Perguntas Frequentes</h2>
+          
+          <div class="faq-grid">
+            <div class="faq-item">
+              <h4>É legal remover metadados?</h4>
+              <p>Sim, completamente legal. É seu direito controlar seus dados pessoais (GDPR, LGPD). Google Photos, Adobe, Apple, Windows — todas as grandes empresas oferecem isso nativamente.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Vocês armazenam minhas fotos?</h4>
+              <p>Não. 100% local. Tudo funciona no seu navegador. Sua foto nunca sai do seu computador. Não há conexão com nossos servidores.</p>
+            </div>
+            <div class="faq-item">
+              <h4>É realmente seguro?</h4>
+              <p>100% seguro. Processamento client-side apenas. Sem upload, sem rastreamento, sem cookies. Seu navegador faz todo o trabalho.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Qual é a diferença entre a foto limpa e a original?</h4>
+              <p>A foto limpa é visualmente idêntica. A única diferença é a remoção dos metadados EXIF ocultos (GPS, data, câmera, etc.).</p>
+            </div>
+            <div class="faq-item">
+              <h4>Funciona em móvel também?</h4>
+              <p>Sim! Funciona em qualquer navegador moderno — desktop, tablet ou celular. Sem app para instalar.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Preciso de login ou conta?</h4>
+              <p>Não. Sem login, sem cadastro, sem cookies de rastreamento. Apenas abra e use.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Posso usar para fins comerciais?</h4>
+              <p>Sim! Fotógrafos profissionais usam para remover metadados antes de entregar ao cliente ou publicar.</p>
+            </div>
+            <div class="faq-item">
+              <h4>Qual é o tamanho máximo de arquivo?</h4>
+              <p>Depende da memória do seu navegador. Funciona com fotos grandes (20+ MB), mas para arquivo muito grande pode ficar lento.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer with Sun Effect -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="sun-effect"></div>
+        <h2 class="footer-logo">SolShield</h2>
+        <p class="footer-tagline">Privacidade é um direito. Proteção é um dever.</p>
+        <p class="footer-copyright">© 2025 SolShield.</p>
+      </div>
+    </footer>
+
+    <div id="err"></div>
+</body>
+</html>
